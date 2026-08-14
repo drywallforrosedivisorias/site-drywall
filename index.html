@@ -3,90 +3,322 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forro e Divisórias Drywall</title>
+  <title>RV - Forros e Divisórias Drywall</title>
   <style>
-    /* RESET */
+    /* RESET E VARIÁVEIS */
+    :root {
+      --primary: #0f172a; /* Azul muito escuro/Preto */
+      --accent: #f97316;  /* Laranja moderno */
+      --light-bg: #f8fafc;
+      --text-main: #334155;
+      --text-light: #64748b;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light-bg); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    /* HEADER */
-    header { background: linear-gradient(135deg, #00c4cc, #ff8800); color: #fff; padding: 40px 20px; text-align: center; }
-    header img { max-width: 150px; margin-bottom: 15px; }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
+    /* TOPO (Topbar) */
+    .topbar { background: var(--primary); color: #fff; font-size: 0.85rem; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .topbar a { color: var(--accent); font-weight: 600; margin-left: 15px; }
+    .topbar a:hover { color: #fff; }
 
-    /* NAV */
-    nav { background: #fff; padding: 15px; display: flex; justify-content: center; gap: 25px; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; }
-    nav a { color: #333; font-weight: bold; text-decoration: none; font-size: 1rem; transition: 0.3s; }
-    nav a:hover { color: #ff8800; }
+    /* HEADER / MENU */
+    header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); flex-wrap: wrap; gap: 15px; }
+    .logo-container { display: flex; align-items: center; gap: 10px; }
+    .logo-container img { height: 40px; }
+    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .logo-text span { color: var(--accent); }
+    
+    nav { display: flex; gap: 25px; align-items: center; }
+    nav a { font-weight: 600; color: var(--text-main); font-size: 0.95rem; }
+    nav a:hover { color: var(--accent); }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); padding: 8px 20px; border-radius: 6px; font-weight: 700; }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
 
-    /* SECTIONS */
-    section { padding: 60px 20px; max-width: 1100px; margin: auto; text-align: center; }
-    h2 { font-size: 2rem; margin-bottom: 15px; color: #00c4cc; }
-    section p { font-size: 1.1rem; margin-bottom: 30px; }
+    /* HERO SECTION (Início) */
+    .hero { padding: 80px 5%; display: flex; align-items: center; background: #fff; }
+    .hero-content { max-width: 650px; }
+    .label { display: inline-block; background: #f1f5f9; color: var(--text-light); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+    .hero h1 { font-size: 3.5rem; line-height: 1.1; color: var(--primary); margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 30px; max-width: 500px; }
+    
+    .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn-main { background: var(--accent); color: #fff; padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    .btn-main:hover { background: #ea580c; transform: translateY(-2px); }
+    .btn-secondary { background: #f1f5f9; color: var(--primary); padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; }
+    .btn-secondary:hover { background: #e2e8f0; }
 
-    /* GALERIA */
-    .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .galeria img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .galeria img:hover { transform: scale(1.05); }
+    .features-list { display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); flex-wrap: wrap; }
+    .features-list span::before { content: '✓'; color: var(--accent); margin-right: 5px; font-weight: bold; }
 
-    /* BOTÃO WHATSAPP */
-    .whatsapp-btn { display: inline-block; padding: 15px 30px; background: #25d366; color: #fff; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
-    .whatsapp-btn:hover { background: #1ebe5c; }
+    /* SEÇÕES COMUNS */
+    .section-pad { padding: 80px 5%; }
+    .section-header { margin-bottom: 50px; max-width: 600px; }
+    .section-header h2 { font-size: 2.5rem; color: var(--primary); line-height: 1.2; letter-spacing: -0.5px; }
 
-    /* BOTÃO FLUTUANTE */
-    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; padding: 15px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-    .whatsapp-float img { width: 40px; height: 40px; }
+    /* O QUE FAZEMOS (Serviços) */
+    .bg-light { background: var(--light-bg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: #fff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.3s; border-top: 4px solid transparent; }
+    .card:hover { border-top-color: var(--accent); transform: translateY(-5px); }
+    .card-num { font-size: 2.5rem; font-weight: 800; color: #f1f5f9; line-height: 1; margin-bottom: 20px; }
+    .card h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 15px; }
+    .card p { color: var(--text-light); margin-bottom: 20px; }
+    .card-link { color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 5px; }
+    .card-link:hover { gap: 10px; }
+
+    /* VANTAGENS (Grid invertido) */
+    .vantagens-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+    .vantagens-img { flex: 1; min-width: 300px; position: relative; }
+    .vantagens-img img { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .vantagens-badge { position: absolute; bottom: -20px; right: -20px; background: var(--primary); color: #fff; padding: 20px; border-radius: 8px; font-weight: 700; }
+    .vantagens-badge span { display: block; color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
+    .vantagens-content { flex: 1; min-width: 300px; }
+
+    .adv-list { margin-top: 30px; }
+    .adv-item { margin-bottom: 25px; }
+    .adv-item h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+    .adv-item h3::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+
+    /* PROJETOS / GALERIA */
+    .bg-dark { background: var(--primary); color: #fff; }
+    .bg-dark .section-header h2 { color: #fff; }
+    .bg-dark .label { background: rgba(255,255,255,0.1); color: var(--accent); }
+    .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .galeria-item { position: relative; border-radius: 12px; overflow: hidden; }
+    .galeria-item img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
+    .galeria-item:hover img { transform: scale(1.05); }
+    .galeria-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 30px 20px 20px; color: #fff; font-weight: 700; font-size: 1.1rem; }
+    .galeria-caption span { color: var(--accent); margin-right: 10px; }
+
+    /* COMO TRABALHAMOS */
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; counter-reset: step; }
+    .step { padding: 30px; background: #fff; border-radius: 12px; position: relative; border: 1px solid #e2e8f0; }
+    .step::before { counter-increment: step; content: counter(step); position: absolute; top: -20px; left: 30px; width: 40px; height: 40px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; border-radius: 50%; border: 4px solid #fff; }
+    .step h3 { margin: 15px 0 10px; color: var(--primary); }
+
+    /* CTA / CONTATO */
+    .cta-section { text-align: center; background: #fff; padding: 100px 5%; }
+    .cta-section h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .cta-section p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 40px; }
 
     /* FOOTER */
-    footer { background: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+    footer { background: var(--primary); color: #94a3b8; padding: 60px 5% 30px; border-top: 5px solid var(--accent); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-col h3 { color: #fff; margin-bottom: 20px; font-size: 1.2rem; }
+    .footer-col p, .footer-col a { margin-bottom: 10px; display: block; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); background: #1ebd5a; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      nav { display: none; }
+      .topbar { justify-content: center; text-align: center; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="topbar">
+    <span>Atendimento em Rio Verde e região</span>
+    <div>
+      <span>(64) 98129-0173</span>
+      <a href="https://wa.me/5564981290173" target="_blank">Fale no WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CABEÇALHO -->
   <header>
-    <img src="logo.png" alt="Forro e Divisórias Drywall">
-    <h1>Forro e Divisórias Drywall</h1>
-    <p>Qualidade, rapidez e confiança para sua obra.</p>
+    <a href="#" class="logo-container">
+      <div class="logo-text">RV<span>Drywall</span></div>
+    </a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5564981290173" target="_blank" class="btn-outline">Pedir orçamento</a>
   </header>
 
-  <nav>
-    <a href="#forro">Forro</a>
-    <a href="#divisorias">Divisórias</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#orcamento">Orçamento</a>
-  </nav>
+  <!-- INÍCIO (HERO) -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="label">Especialistas em construção a seco</span>
+      <h1>Mais espaço.<br><em>Mais possibilidades.</em></h1>
+      <p>Forros, divisórias e soluções em drywall para transformar ambientes com agilidade, organização e um acabamento que faz diferença.</p>
+      
+      <div class="hero-buttons">
+        <a href="https://wa.me/5564981290173" target="_blank" class="btn-main">Solicitar orçamento</a>
+        <a href="#servicos" class="btn-secondary">Conhecer serviços ↓</a>
+      </div>
 
-  <section id="forro">
-    <h2>Forro Drywall</h2>
-    <p>Instalamos forros em drywall que oferecem beleza, praticidade e excelente acabamento para qualquer ambiente.</p>
-  </section>
-
-  <section id="divisorias">
-    <h2>Divisórias</h2>
-    <p>Nossas divisórias em drywall permitem flexibilidade, conforto acústico e rapidez na execução.</p>
-  </section>
-
-  <section id="galeria">
-    <h2>Galeria de Projetos</h2>
-    <div class="galeria">
-      <img src="foto1.jpg" alt="Exemplo de obra 1">
-      <img src="foto2.jpg" alt="Exemplo de obra 2">
-      <img src="foto3.jpg" alt="Exemplo de obra 3">
+      <div class="features-list">
+        <span>Orçamento sem compromisso</span>
+        <span>Execução ágil</span>
+        <span>Acabamento cuidadoso</span>
+      </div>
     </div>
   </section>
 
-  <section id="orcamento">
-    <h2>Orçamento Rápido</h2>
-    <p>Fale conosco pelo WhatsApp e receba seu orçamento.</p>
-    <a class="whatsapp-btn" href="https://wa.me/5564981290173" target="_blank">💬 Pedir Orçamento</a>
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="section-pad bg-light">
+    <div class="section-header">
+      <span class="label">O que fazemos</span>
+      <h2>Soluções para transformar cada ambiente.</h2>
+      <p style="margin-top: 15px; color: var(--text-light);">Da divisão inteligente dos espaços ao acabamento do teto, cuidamos da execução para sua obra avançar com segurança.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Forros em drywall</h3>
+        <p>Rebaixamentos e forros com acabamento uniforme para residências, comércios e escritórios.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Divisórias e paredes</h3>
+        <p>Ambientes bem distribuídos, execução limpa e soluções que se adaptam ao seu projeto.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Projetos sob medida</h3>
+        <p>Recortes, detalhes e soluções personalizadas para integrar iluminação, conforto e estética.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+    </div>
   </section>
 
-  <a class="whatsapp-float" href="https://wa.me/5564981290173" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  <!-- VANTAGENS -->
+  <section id="vantagens" class="section-pad">
+    <div class="vantagens-container">
+      <div class="vantagens-content">
+        <span class="label">Por que escolher drywall</span>
+        <h2>Construção inteligente,<br>do seu jeito.</h2>
+        <p style="color: var(--text-light); margin-top: 15px; font-size: 1.1rem;">O drywall une praticidade, desempenho e liberdade de projeto. É a escolha certa para renovar sem abrir mão de um resultado bonito e funcional.</p>
+        
+        <div class="adv-list">
+          <div class="adv-item">
+            <h3>Rapidez</h3>
+            <p style="color: var(--text-light);">Obra ágil e organizada, com menos desperdício e menor impacto na rotina.</p>
+          </div>
+          <div class="adv-item">
+            <h3>Versatilidade</h3>
+            <p style="color: var(--text-light);">Soluções para criar, dividir ou renovar ambientes de diferentes tamanhos.</p>
+          </div>
+          <div class="adv-item">
+            <h3>Acabamento</h3>
+            <p style="color: var(--text-light);">Cuidado em cada etapa para entregar superfícies alinhadas e prontas para valorizar o espaço.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vantagens-img">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Estrutura de Drywall">
+        <div class="vantagens-badge">
+          <span>Obra limpa</span>
+          Resultado preciso
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS / APLICAÇÕES -->
+  <section id="projetos" class="section-pad bg-dark">
+    <div class="section-header" style="max-width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span class="label">Aplicações</span>
+        <h2>Drywall que acompanha<br>o ritmo da sua obra.</h2>
+      </div>
+      <a href="https://wa.me/5564981290173" class="btn-main" target="_blank">Quero transformar meu espaço</a>
+    </div>
+
+    <div class="galeria-grid">
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=600&q=80" alt="Residencial">
+        <div class="galeria-caption"><span>01</span> Ambientes residenciais</div>
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Forros">
+        <div class="galeria-caption"><span>02</span> Forros e rebaixamentos</div>
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Divisórias">
+        <div class="galeria-caption"><span>03</span> Divisórias internas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHAMOS -->
+  <section class="section-pad bg-light">
+    <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
+      <span class="label">Como trabalhamos</span>
+      <h2>Simples para você.<br>Bem-feito em cada etapa.</h2>
+    </div>
+
+    <div class="process-steps">
+      <div class="step">
+        <h3>Entendemos sua obra</h3>
+        <p style="color: var(--text-light);">Você explica o que precisa e alinhamos medidas, ambiente e melhor solução.</p>
+      </div>
+      <div class="step">
+        <h3>Preparamos a proposta</h3>
+        <p style="color: var(--text-light);">Organizamos o serviço e apresentamos um orçamento claro, sem compromisso.</p>
+      </div>
+      <div class="step">
+        <h3>Executamos com cuidado</h3>
+        <p style="color: var(--text-light);">Nossa equipe realiza o trabalho com agilidade, organização e atenção ao acabamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO (CTA) -->
+  <section id="contato" class="cta-section">
+    <span class="label">Vamos conversar?</span>
+    <h2>Seu ambiente pode ficar<br>do jeito que você imaginou.</h2>
+    <p>Conte o que você precisa e receba um orçamento direto no WhatsApp.</p>
+    <a href="https://wa.me/5564981290173" target="_blank" class="btn-main" style="padding: 18px 40px; font-size: 1.2rem;">Pedir orçamento agora</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo-text" style="color: #fff; margin-bottom: 15px;">RV<span style="color: var(--accent);">Drywall</span></div>
+        <p>Qualidade, rapidez e confiança para sua obra em drywall.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Navegação</h3>
+        <a href="#servicos">Serviços</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#projetos">Projetos</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <a href="https://wa.me/5564981290173" target="_blank">WhatsApp: (64) 98129-0173</a>
+        <p>Atendimento exclusivo em<br>Rio Verde - GO e região.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 RV - Forros e Divisórias Drywall. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5564981290173?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" class="whatsapp-float">
+    <svg width="35" height="35" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.031 0C5.385 0 0 5.386 0 12.032C0 14.156 0.557 16.225 1.597 18.016L0.111 23.447L5.65 21.996C7.369 22.94 9.294 23.447 11.272 23.447H11.275C17.921 23.447 23.307 18.061 23.307 11.415C23.307 4.769 17.924 0 11.278 0H12.031ZM11.275 21.488C9.484 21.488 7.733 21.009 6.195 20.098L5.834 19.884L2.571 20.738L3.443 17.564L3.208 17.189C2.209 15.6 1.683 13.784 1.683 11.905C1.683 6.619 5.986 2.316 11.275 2.316C16.564 2.316 20.867 6.619 20.867 11.908C20.864 17.197 16.561 21.488 11.275 21.488ZM16.536 14.301C16.248 14.157 14.832 13.46 14.568 13.364C14.304 13.268 14.112 13.22 13.92 13.508C13.728 13.796 13.176 14.469 13.008 14.685C12.84 14.901 12.672 14.925 12.384 14.781C12.096 14.637 11.166 14.333 10.059 13.344C9.186 12.564 8.598 11.621 8.43 11.333C8.262 11.045 8.412 10.889 8.556 10.745C8.688 10.613 8.844 10.409 8.988 10.241C9.132 10.073 9.18 9.953 9.276 9.761C9.372 9.569 9.324 9.401 9.252 9.257C9.18 9.113 8.598 7.673 8.358 7.097C8.124 6.533 7.884 6.605 7.716 6.593C7.56 6.581 7.368 6.581 7.176 6.581C6.984 6.581 6.672 6.653 6.408 6.941C6.144 7.229 5.4 7.925 5.4 9.341C5.4 10.757 6.432 12.125 6.576 12.317C6.72 12.509 8.568 15.365 11.4 16.589C12.072 16.877 12.6 17.045 13.008 17.177C13.68 17.393 14.292 17.357 14.772 17.273C15.312 17.177 16.44 16.565 16.68 15.893C16.92 15.221 16.92 14.645 16.848 14.525C16.776 14.405 16.584 14.333 16.296 14.189Z"/>
+    </svg>
   </a>
 
-  <footer>
-    <p>© 2025 Forro e Divisórias Drywall - Todos os direitos reservados.</p>
-  </footer>
 </body>
 </html>
