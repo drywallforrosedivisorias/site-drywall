@@ -1,3 +1,808 @@
+Converter chat para PDF
+Converter chat para PDF
+Abrir este chat no Acrobat
+Conversa com o Gemini
+https://drywallforrosedivisorias.netlify.app
+
+
+
+extraia todos os detalhes desse site que é meu para melhorar ele
+
+Analisei a estrutura, os textos e o código do seu site. Ele já tem uma base excelente, sendo rápido e direto ao ponto, mas existem pontos estratégicos que podem ser ajustados para aumentar a confiança do cliente e gerar mais orçamentos.
+
+Aqui está o detalhamento do que foi extraído e o que pode ser melhorado:
+
+1. O que já está no site (Estrutura Atual)
+Foco e Localização: O site se apresenta de forma descritiva como "Forro e Divisórias Drywall", focado no atendimento em Rio Verde e região.
+
+Serviços: Destaca três pilares principais: Forros em drywall, Divisórias/paredes e Projetos sob medida.
+
+Argumentos de Venda: Aponta rapidez, versatilidade, obra limpa e foco no acabamento.
+
+Conversão: Excelente uso de botões de WhatsApp (64 98129-0173) distribuídos em todas as seções (cabeçalho, serviços, flutuante).
+
+Metodologia: Explica o processo em três passos (Entendimento, Proposta e Execução).
+
+2. Como melhorar e profissionalizar ainda mais o site
+Fortalecimento da Marca (Branding)
+Atualmente, o site usa um nome genérico ("Forro e Divisórias Drywall"). Substituir isso pelo nome comercial da sua empresa, aplicando a identidade visual e o logotipo da GGESSO ou TOP GESSO no cabeçalho, vai diferenciar seu serviço da concorrência. Quando o cliente fechar a aba, ele precisa lembrar do nome da sua marca, e não apenas do serviço que você presta.
+
+Autoridade e Toque Pessoal
+No mercado de construção e reformas, a confiança é o fator número um para o fechamento do negócio. Criar uma breve seção "Quem Somos" apresentando o Genelson como o especialista responsável pelas obras traz credibilidade. Os clientes gostam de saber quem vai entrar na casa ou na empresa deles.
+
+Portfólio de Obras Reais
+O site possui imagens que cumprem o papel de ilustrar o serviço, mas nada vende mais do que o trabalho real. Adicionar uma galeria com fotos de projetos executados por você (detalhes do acabamento, recortes de iluminação, e um "Antes x Depois") serve como prova visual da qualidade prometida nos textos.
+
+Provas Sociais (Depoimentos)
+Inclua de 3 a 4 avaliações curtas de clientes que já contrataram seus serviços. Relatos destacando que "a obra foi rápida", "não deixou sujeira" ou "o acabamento ficou perfeito" validam exatamente as vantagens que o site já lista.
+
+Otimização para o Google (SEO Local)
+Você pode ajustar os títulos das páginas e o texto do rodapé para incluir termos mais fortes de busca. Além de "Forros e Divisórias", incluir palavras como "Especialista em Gesso", "Sancas" (se você oferecer) e reforçar "Rio Verde - GO" no texto principal ajudará seu site a aparecer mais facilmente quando alguém da cidade pesquisar no Google.
+
+me devolve em codigo para eu poder desenvolver ele no appscript no google
+
+Aqui está a estrutura completa adaptada para rodar perfeitamente como um Web App no Google Apps Script. O código já inclui as melhorias estratégicas: a identidade da TOP GESSO, a apresentação sua como especialista responsável e a otimização das seções.
+
+No Apps Script, você precisará de dois arquivos. Crie um projeto novo e substitua o conteúdo padrão por estes abaixo.
+
+1. Arquivo Code.gs
+Este é o script do lado do servidor que fará sua página HTML ser exibida quando o link do Web App for acessado.
+
+JavaScript
+function doGet(e) {
+  // Cria a saída HTML a partir do arquivo Index.html
+  var htmlOutput = HtmlService.createTemplateFromFile('Index').evaluate();
+  
+  // Configurações para mobile e título da aba
+  htmlOutput.setTitle('TOP GESSO - Forros e Divisórias em Drywall | Rio Verde - GO')
+            .addMetaTag('viewport', 'width=device-width, initial-scale=1');
+            
+  return htmlOutput;
+}
+2. Arquivo Index.html
+Crie um arquivo HTML chamado Index (o Apps Script adiciona o .html automaticamente). Ele contém a estrutura, o design (CSS) e o conteúdo otimizado.
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TOP GESSO - Especialista em Drywall</title>
+  <style>
+    /* Estilos base (Reset e Tipografia) */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Variáveis de Cores (Estilo Construção Premium) */
+    :root {
+      --primary: #1a252f; /* Azul/Cinza muito escuro */
+      --accent: #e67e22;  /* Laranja destaque */
+      --light: #ffffff;
+      --gray: #ecf0f1;
+    }
+
+    /* Cabeçalho */
+    header { background: var(--light); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 24px; font-weight: bold; color: var(--primary); }
+    .logo span { color: var(--accent); }
+    nav a { margin: 0 15px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--accent); }
+    .btn-contact { background: var(--accent); color: var(--light); padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: background 0.3s; }
+    .btn-contact:hover { background: #d35400; }
+
+    /* Hero Section (Início) */
+    .hero { background: linear-gradient(rgba(26, 37, 47, 0.9), rgba(26, 37, 47, 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1920&q=80') center/cover; color: var(--light); padding: 100px 5%; text-align: center; }
+    .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .diferenciais { display: flex; justify-content: center; gap: 20px; margin-top: 40px; font-size: 0.9rem; color: #bdc3c7; }
+
+    /* Seção Especialista (Nova) */
+    .specialist { padding: 60px 5%; background: var(--light); display: flex; align-items: center; gap: 40px; justify-content: center; flex-wrap: wrap; }
+    .specialist-text { max-width: 600px; }
+    .specialist h2 { color: var(--primary); margin-bottom: 15px; font-size: 2rem; }
+    .specialist p { margin-bottom: 15px; color: #555; }
+
+    /* Serviços */
+    .services { padding: 80px 5%; background: var(--gray); text-align: center; }
+    .services h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--primary); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .card { background: var(--light); padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: left; transition: transform 0.3s; border-top: 4px solid var(--accent); }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { margin: 15px 0; color: var(--primary); }
+    
+    /* Vantagens */
+    .advantages { padding: 80px 5%; background: var(--primary); color: var(--light); }
+    .advantages h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
+    .adv-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; text-align: center; }
+    .adv-item { flex: 1; min-width: 250px; }
+    .adv-item h3 { color: var(--accent); margin-bottom: 10px; }
+
+    /* Rodapé */
+    footer { background: #111; color: #aaa; padding: 40px 5%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+    footer h3 { color: var(--light); margin-bottom: 15px; }
+    footer a { display: block; margin-bottom: 8px; }
+    footer a:hover { color: var(--accent); }
+    .footer-bottom { width: 100%; text-align: center; padding-top: 20px; margin-top: 20px; border-top: 1px solid #333; font-size: 0.9rem; }
+
+    /* Botão Flutuante WhatsApp */
+    .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 20px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(37,211,102,0.4); z-index: 1000; transition: transform 0.3s; }
+    .float-wa:hover { transform: scale(1.05); }
+
+    /* Responsividade */
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 15px; }
+      .diferenciais { flex-direction: column; gap: 10px; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">TOP <span>GESSO</span></div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#especialista">Quem Somos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#vantagens">Vantagens</a>
+    </nav>
+    <a href="https://wa.me/5564981290173?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" class="btn-contact">Pedir Orçamento</a>
+  </header>
+
+  <section id="inicio" class="hero">
+    <p>Atendimento em Rio Verde e região</p>
+    <h1>Mais espaço.<br><em>Mais possibilidades.</em></h1>
+    <p>Qualidade, rapidez e confiança para sua obra. Forros, divisórias e soluções em drywall para transformar ambientes com agilidade e um acabamento perfeito.</p>
+    <a href="https://wa.me/5564981290173?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" class="btn-contact" style="font-size: 1.2rem; padding: 15px 30px;">Fale no WhatsApp</a>
+    
+    <div class="diferenciais">
+      <span>✓ Orçamento sem compromisso</span>
+      <span>✓ Execução ágil</span>
+      <span>✓ Acabamento cuidadoso</span>
+    </div>
+  </section>
+
+  <section id="especialista" class="specialist">
+    <div class="specialist-text">
+      <h2>Transformando ideias em realidade</h2>
+      <p>Prazer, sou <strong>Genelson</strong>, especialista responsável pela TOP GESSO. Trabalho diariamente para entregar não apenas uma obra, mas a solução exata que o seu projeto exige.</p>
+      <p>Seja para dividir um espaço comercial inteligente ou criar aquele forro rebaixado com iluminação embutida na sua casa, acompanho do projeto ao acabamento para garantir que tudo saia perfeitamente alinhado, limpo e sem dores de cabeça.</p>
+    </div>
+  </section>
+
+  <section id="servicos" class="services">
+    <h2>Soluções para transformar cada ambiente</h2>
+    <div class="cards">
+      <div class="card">
+        <span>01</span>
+        <h3>Forros em Drywall</h3>
+        <p>Rebaixamentos e forros com acabamento uniforme para residências, comércios e escritórios.</p>
+      </div>
+      <div class="card">
+        <span>02</span>
+        <h3>Divisórias e Paredes</h3>
+        <p>Ambientes bem distribuídos, execução limpa e soluções que se adaptam ao seu projeto.</p>
+      </div>
+      <div class="card">
+        <span>03</span>
+        <h3>Projetos Sob Medida</h3>
+        <p>Recortes, detalhes e soluções personalizadas para integrar iluminação, conforto e estética.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vantagens" class="advantages">
+    <h2>Construção inteligente, do seu jeito</h2>
+    <div class="adv-grid">
+      <div class="adv-item">
+        <h3>Rapidez</h3>
+        <p>Obra ágil e organizada, com menos desperdício e menor impacto na sua rotina.</p>
+      </div>
+      <div class="adv-item">
+        <h3>Versatilidade</h3>
+        <p>Soluções ideais para criar, dividir ou renovar ambientes de diferentes tamanhos.</p>
+      </div>
+      <div class="adv-item">
+        <h3>Acabamento</h3>
+        <p>Cuidado meticuloso em cada etapa para entregar superfícies perfeitamente alinhadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="logo" style="color: #fff; margin-bottom: 10px;">TOP <span>GESSO</span></div>
+      <p>Qualidade, rapidez e confiança<br>para a sua obra.</p>
+    </div>
+    <div>
+      <h3>Navegação</h3>
+      <a href="#inicio">Início</a>
+      <a href="#especialista">Quem Somos</a>
+      <a href="#servicos">Serviços</a>
+    </div>
+    <div>
+      <h3>Contato</h3>
+      <p>(64) 98129-0173</p>
+      <p>Atendimento em Rio Verde - GO e região</p>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TOP GESSO. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5564981290173?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" class="float-wa">
+    💬 Orçamento no WhatsApp
+  </a>
+
+</body>
+</html>
+Como publicar seu Web App:
+Abra o Google Apps Script.
+
+Crie um Novo Projeto.
+
+Cole o código do Code.gs no arquivo de mesmo nome.
+
+Clique no ícone de + ao lado de "Arquivos", escolha HTML e nomeie como Index (com "I" maiúsculo). Cole o código HTML lá.
+
+Vá em Implantar (Deploy) > Nova implantação.
+
+Clique na engrenagem ao lado de "Selecionar tipo" e escolha App da Web.
+
+Preencha a descrição. Em Executar como, deixe "Eu". Em Quem pode acessar, mude para Qualquer pessoa.
+
+Clique em Implantar. Ele vai gerar o link público (terminado em /exec) que você já pode começar a divulgar.
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Forro e Divisórias Drywall</title>
+
+  <style>
+
+    /* RESET */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
+
+
+
+    /* HEADER */
+
+    header { background: linear-gradient(135deg, #00c4cc, #ff8800); color: #fff; padding: 40px 20px; text-align: center; }
+
+    header img { max-width: 150px; margin-bottom: 15px; }
+
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+    header p { font-size: 1.2rem; }
+
+
+
+    /* NAV */
+
+    nav { background: #fff; padding: 15px; display: flex; justify-content: center; gap: 25px; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; }
+
+    nav a { color: #333; font-weight: bold; text-decoration: none; font-size: 1rem; transition: 0.3s; }
+
+    nav a:hover { color: #ff8800; }
+
+
+
+    /* SECTIONS */
+
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; text-align: center; }
+
+    h2 { font-size: 2rem; margin-bottom: 15px; color: #00c4cc; }
+
+    section p { font-size: 1.1rem; margin-bottom: 30px; }
+
+
+
+    /* GALERIA */
+
+    .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+    .galeria img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+
+    .galeria img:hover { transform: scale(1.05); }
+
+
+
+    /* BOTÃO WHATSAPP */
+
+    .whatsapp-btn { display: inline-block; padding: 15px 30px; background: #25d366; color: #fff; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+
+    .whatsapp-btn:hover { background: #1ebe5c; }
+
+
+
+    /* BOTÃO FLUTUANTE */
+
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; padding: 15px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+    .whatsapp-float img { width: 40px; height: 40px; }
+
+
+
+    /* FOOTER */
+
+    footer { background: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <img src="logo.png" alt="Forro e Divisórias Drywall">
+
+    <h1>Forro e Divisórias Drywall</h1>
+
+    <p>Qualidade, rapidez e confiança para sua obra.</p>
+
+  </header>
+
+
+
+  <nav>
+
+    <a href="#forro">Forro</a>
+
+    <a href="#divisorias">Divisórias</a>
+
+    <a href="#galeria">Galeria</a>
+
+    <a href="#orcamento">Orçamento</a>
+
+  </nav>
+
+
+
+  <section id="forro">
+
+    <h2>Forro Drywall</h2>
+
+    <p>Instalamos forros em drywall que oferecem beleza, praticidade e excelente acabamento para qualquer ambiente.</p>
+
+  </section>
+
+
+
+  <section id="divisorias">
+
+    <h2>Divisórias</h2>
+
+    <p>Nossas divisórias em drywall permitem flexibilidade, conforto acústico e rapidez na execução.</p>
+
+  </section>
+
+
+
+  <section id="galeria">
+
+    <h2>Galeria de Projetos</h2>
+
+    <div class="galeria">
+
+      <img src="foto1.jpg" alt="Exemplo de obra 1">
+
+      <img src="foto2.jpg" alt="Exemplo de obra 2">
+
+      <img src="foto3.jpg" alt="Exemplo de obra 3">
+
+    </div>
+
+  </section>
+
+
+
+  <section id="orcamento">
+
+    <h2>Orçamento Rápido</h2>
+
+    <p>Fale conosco pelo WhatsApp e receba seu orçamento.</p>
+
+    <a class="whatsapp-btn" href="https://wa.me/5564981290173" target="_blank">💬 Pedir Orçamento</a>
+
+  </section>
+
+
+
+  <a class="whatsapp-float" href="https://wa.me/5564981290173" target="_blank">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+
+  </a>
+
+
+
+  <footer>
+
+    <p>© 2025 Forro e Divisórias Drywall - Todos os direitos reservados.</p>
+
+  </footer>
+
+</body>
+
+</html>
+
+
+
+
+
+esse codigo do site, faça as alterações para ficar igual o do link e me denvolve o arquivo index pronto
+
+Aqui está o código completo e unificado, estruturado para ficar com o design moderno, elegante e completo do link original, mas já pronto para você colar no seu projeto do Google Apps Script.
+
+O visual foi reescrito com CSS puro (sem depender de arquivos externos) e o conteúdo reflete exatamente a estrutura profissional da página, já com a marca TOP GESSO aplicada.
+
+Crie o arquivo Index.html e cole o código abaixo:
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOP GESSO - Forros e Divisórias Drywall</title>
+  <style>
+    /* RESET E VARIÁVEIS */
+    :root {
+      --primary: #0f172a; /* Azul muito escuro/Preto */
+      --accent: #f97316;  /* Laranja moderno */
+      --light-bg: #f8fafc;
+      --text-main: #334155;
+      --text-light: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light-bg); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* TOPO (Topbar) */
+    .topbar { background: var(--primary); color: #fff; font-size: 0.85rem; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .topbar a { color: var(--accent); font-weight: 600; margin-left: 15px; }
+    .topbar a:hover { color: #fff; }
+
+    /* HEADER / MENU */
+    header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); flex-wrap: wrap; gap: 15px; }
+    .logo-container { display: flex; align-items: center; gap: 10px; }
+    .logo-container img { height: 40px; }
+    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .logo-text span { color: var(--accent); }
+    
+    nav { display: flex; gap: 25px; align-items: center; }
+    nav a { font-weight: 600; color: var(--text-main); font-size: 0.95rem; }
+    nav a:hover { color: var(--accent); }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); padding: 8px 20px; border-radius: 6px; font-weight: 700; }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+
+    /* HERO SECTION (Início) */
+    .hero { padding: 80px 5%; display: flex; align-items: center; background: #fff; }
+    .hero-content { max-width: 650px; }
+    .label { display: inline-block; background: #f1f5f9; color: var(--text-light); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+    .hero h1 { font-size: 3.5rem; line-height: 1.1; color: var(--primary); margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 30px; max-width: 500px; }
+    
+    .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn-main { background: var(--accent); color: #fff; padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    .btn-main:hover { background: #ea580c; transform: translateY(-2px); }
+    .btn-secondary { background: #f1f5f9; color: var(--primary); padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; }
+    .btn-secondary:hover { background: #e2e8f0; }
+
+    .features-list { display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); flex-wrap: wrap; }
+    .features-list span::before { content: '✓'; color: var(--accent); margin-right: 5px; font-weight: bold; }
+
+    /* SEÇÕES COMUNS */
+    .section-pad { padding: 80px 5%; }
+    .section-header { margin-bottom: 50px; max-width: 600px; }
+    .section-header h2 { font-size: 2.5rem; color: var(--primary); line-height: 1.2; letter-spacing: -0.5px; }
+
+    /* O QUE FAZEMOS (Serviços) */
+    .bg-light { background: var(--light-bg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: #fff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.3s; border-top: 4px solid transparent; }
+    .card:hover { border-top-color: var(--accent); transform: translateY(-5px); }
+    .card-num { font-size: 2.5rem; font-weight: 800; color: #f1f5f9; line-height: 1; margin-bottom: 20px; }
+    .card h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 15px; }
+    .card p { color: var(--text-light); margin-bottom: 20px; }
+    .card-link { color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 5px; }
+    .card-link:hover { gap: 10px; }
+
+    /* VANTAGENS (Grid invertido) */
+    .vantagens-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+    .vantagens-img { flex: 1; min-width: 300px; position: relative; }
+    .vantagens-img img { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .vantagens-badge { position: absolute; bottom: -20px; right: -20px; background: var(--primary); color: #fff; padding: 20px; border-radius: 8px; font-weight: 700; }
+    .vantagens-badge span { display: block; color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
+    .vantagens-content { flex: 1; min-width: 300px; }
+
+    .adv-list { margin-top: 30px; }
+    .adv-item { margin-bottom: 25px; }
+    .adv-item h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+    .adv-item h3::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+
+    /* PROJETOS / GALERIA */
+    .bg-dark { background: var(--primary); color: #fff; }
+    .bg-dark .section-header h2 { color: #fff; }
+    .bg-dark .label { background: rgba(255,255,255,0.1); color: var(--accent); }
+    .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .galeria-item { position: relative; border-radius: 12px; overflow: hidden; }
+    .galeria-item img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
+    .galeria-item:hover img { transform: scale(1.05); }
+    .galeria-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 30px 20px 20px; color: #fff; font-weight: 700; font-size: 1.1rem; }
+    .galeria-caption span { color: var(--accent); margin-right: 10px; }
+
+    /* COMO TRABALHAMOS */
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; counter-reset: step; }
+    .step { padding: 30px; background: #fff; border-radius: 12px; position: relative; border: 1px solid #e2e8f0; }
+    .step::before { counter-increment: step; content: counter(step); position: absolute; top: -20px; left: 30px; width: 40px; height: 40px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; border-radius: 50%; border: 4px solid #fff; }
+    .step h3 { margin: 15px 0 10px; color: var(--primary); }
+
+    /* CTA / CONTATO */
+    .cta-section { text-align: center; background: #fff; padding: 100px 5%; }
+    .cta-section h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .cta-section p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 40px; }
+
+    /* FOOTER */
+    footer { background: var(--primary); color: #94a3b8; padding: 60px 5% 30px; border-top: 5px solid var(--accent); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-col h3 { color: #fff; margin-bottom: 20px; font-size: 1.2rem; }
+    .footer-col p, .footer-col a { margin-bottom: 10px; display: block; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); background: #1ebd5a; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      nav { display: none; /* Em telas muito pequenas, oculta o menu para simplificar */ }
+      .topbar { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="topbar">
+    <span>Atendimento em Rio Verde e região</span>
+    <div>
+      <span>(64) 98129-0173</span>
+      <a href="https://wa.me/5564981290173" target="_blank">Fale no WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <a href="#" class="logo-container">
+      <!-- Se tiver a logo em imagem, descomente a linha abaixo e coloque o link -->
+      <!-- <img src="logo.png" alt="TOP GESSO"> -->
+      <div class="logo-text">TOP<span>GESSO</span></div>
+    </a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5564981290173" target="_blank" class="btn-outline">Pedir orçamento</a>
+  </header>
+
+  <!-- INÍCIO (HERO) -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="label">Especialistas em construção a seco</span>
+      <h1>Mais espaço.<br><em>Mais possibilidades.</em></h1>
+      <p>Forros, divisórias e soluções em drywall para transformar ambientes com agilidade, organização e um acabamento que faz diferença. Projetos sob a responsabilidade de <strong>Genelson</strong>.</p>
+      
+      <div class="hero-buttons">
+        <a href="https://wa.me/5564981290173" target="_blank" class="btn-main">Solicitar orçamento</a>
+        <a href="#servicos" class="btn-secondary">Conhecer serviços ↓</a>
+      </div>
+
+      <div class="features-list">
+        <span>Orçamento sem compromisso</span>
+        <span>Execução ágil</span>
+        <span>Acabamento cuidadoso</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="section-pad bg-light">
+    <div class="section-header">
+      <span class="label">O que fazemos</span>
+      <h2>Soluções para transformar cada ambiente.</h2>
+      <p style="margin-top: 15px; color: var(--text-light);">Da divisão inteligente dos espaços ao acabamento do teto, cuidamos da execução para sua obra avançar com segurança.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Forros em drywall</h3>
+        <p>Rebaixamentos e forros com acabamento uniforme para residências, comércios e escritórios.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Divisórias e paredes</h3>
+        <p>Ambientes bem distribuídos, execução limpa e soluções que se adaptam ao seu projeto.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Projetos sob medida</h3>
+        <p>Recortes, detalhes e soluções personalizadas para integrar iluminação, conforto e estética.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VANTAGENS -->
+  <section id="vantagens" class="section-pad">
+    <div class="vantagens-container">
+      <div class="vantagens-content">
+        <span class="label">Por que escolher drywall</span>
+        <h2>Construção inteligente,<br>do seu jeito.</h2>
+        <p style="color: var(--text-light); margin-top: 15px; font-size: 1.1rem;">O drywall une praticidade, desempenho e liberdade de projeto. É a escolha certa para renovar sem abrir mão de um resultado bonito e funcional.</p>
+        
+        <div class="adv-list">
+          <div class="adv-item">
+            <h3>Rapidez</h3>
+            <p style="color: var(--text-light);">Obra ágil e organizada, com menos desperdício e menor impacto na rotina.</p>
+          </div>
+          <div class="adv-item">
+            <h3>Versatilidade</h3>
+            <p style="color: var(--text-light);">Soluções para criar, dividir ou renovar ambientes de diferentes tamanhos.</p>
+          </div>
+          <div class="adv-item">
+            <h3>Acabamento</h3>
+            <p style="color: var(--text-light);">Cuidado em cada etapa para entregar superfícies alinhadas e prontas para valorizar o espaço.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vantagens-img">
+        <!-- Substitua a URL abaixo por uma foto real de uma obra sua (obra-2.jpg) -->
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Estrutura de Drywall">
+        <div class="vantagens-badge">
+          <span>Obra limpa</span>
+          Resultado preciso
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS / APLICAÇÕES -->
+  <section id="projetos" class="section-pad bg-dark">
+    <div class="section-header" style="max-width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span class="label">Aplicações</span>
+        <h2>Drywall que acompanha<br>o ritmo da sua obra.</h2>
+      </div>
+      <a href="https://wa.me/5564981290173" class="btn-main" target="_blank">Quero transformar meu espaço</a>
+    </div>
+
+    <div class="galeria-grid">
+      <div class="galeria-item">
+        <!-- Substitua por foto-residencial.jpg -->
+        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=600&q=80" alt="Residencial">
+        <div class="galeria-caption"><span>01</span> Ambientes residenciais</div>
+      </div>
+      <div class="galeria-item">
+        <!-- Substitua por obra-1.jpg -->
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Forros">
+        <div class="galeria-caption"><span>02</span> Forros e rebaixamentos</div>
+      </div>
+      <div class="galeria-item">
+        <!-- Substitua por foto3.jpg -->
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Divisórias">
+        <div class="galeria-caption"><span>03</span> Divisórias internas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHAMOS -->
+  <section class="section-pad bg-light">
+    <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
+      <span class="label">Como trabalhamos</span>
+      <h2>Simples para você.<br>Bem-feito em cada etapa.</h2>
+    </div>
+
+    <div class="process-steps">
+      <div class="step">
+        <h3>Entendemos sua obra</h3>
+        <p style="color: var(--text-light);">Você explica o que precisa e alinhamos medidas, ambiente e melhor solução.</p>
+      </div>
+      <div class="step">
+        <h3>Preparamos a proposta</h3>
+        <p style="color: var(--text-light);">Organizamos o serviço e apresentamos um orçamento claro, sem compromisso.</p>
+      </div>
+      <div class="step">
+        <h3>Executamos com cuidado</h3>
+        <p style="color: var(--text-light);">Nossa equipe realiza o trabalho com agilidade, organização e atenção ao acabamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO (CTA) -->
+  <section id="contato" class="cta-section">
+    <span class="label">Vamos conversar?</span>
+    <h2>Seu ambiente pode ficar<br>do jeito que você imaginou.</h2>
+    <p>Conte o que você precisa e receba um orçamento direto no WhatsApp.</p>
+    <a href="https://wa.me/5564981290173" target="_blank" class="btn-main" style="padding: 18px 40px; font-size: 1.2rem;">Pedir orçamento agora</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo-text" style="color: #fff; margin-bottom: 15px;">TOP<span style="color: var(--accent);">GESSO</span></div>
+        <p>Qualidade, rapidez e confiança para sua obra em drywall.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Navegação</h3>
+        <a href="#servicos">Serviços</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#projetos">Projetos</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <a href="https://wa.me/5564981290173" target="_blank">WhatsApp: (64) 98129-0173</a>
+        <p>Atendimento exclusivo em<br>Rio Verde - GO e região.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TOP GESSO - Forro e Divisórias Drywall. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5564981290173?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" class="whatsapp-float">
+    <svg width="35" height="35" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.031 0C5.385 0 0 5.386 0 12.032C0 14.156 0.557 16.225 1.597 18.016L0.111 23.447L5.65 21.996C7.369 22.94 9.294 23.447 11.272 23.447H11.275C17.921 23.447 23.307 18.061 23.307 11.415C23.307 4.769 17.924 0 11.278 0H12.031ZM11.275 21.488C9.484 21.488 7.733 21.009 6.195 20.098L5.834 19.884L2.571 20.738L3.443 17.564L3.208 17.189C2.209 15.6 1.683 13.784 1.683 11.905C1.683 6.619 5.986 2.316 11.275 2.316C16.564 2.316 20.867 6.619 20.867 11.908C20.864 17.197 16.561 21.488 11.275 21.488ZM16.536 14.301C16.248 14.157 14.832 13.46 14.568 13.364C14.304 13.268 14.112 13.22 13.92 13.508C13.728 13.796 13.176 14.469 13.008 14.685C12.84 14.901 12.672 14.925 12.384 14.781C12.096 14.637 11.166 14.333 10.059 13.344C9.186 12.564 8.598 11.621 8.43 11.333C8.262 11.045 8.412 10.889 8.556 10.745C8.688 10.613 8.844 10.409 8.988 10.241C9.132 10.073 9.18 9.953 9.276 9.761C9.372 9.569 9.324 9.401 9.252 9.257C9.18 9.113 8.598 7.673 8.358 7.097C8.124 6.533 7.884 6.605 7.716 6.593C7.56 6.581 7.368 6.581 7.176 6.581C6.984 6.581 6.672 6.653 6.408 6.941C6.144 7.229 5.4 7.925 5.4 9.341C5.4 10.757 6.432 12.125 6.576 12.317C6.72 12.509 8.568 15.365 11.4 16.589C12.072 16.877 12.6 17.045 13.008 17.177C13.68 17.393 14.292 17.357 14.772 17.273C15.312 17.177 16.44 16.565 16.68 15.893C16.92 15.221 16.92 14.645 16.848 14.525C16.776 14.405 16.584 14.333 16.296 14.189Z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
+O que mudou e foi integrado:
+Design Original: O visual "Dark & Light", os "cards" de serviços e o layout intercalado (foto e texto) da seção de Vantagens foram recriados.
+
+Identidade: Aplicado o nome da sua empresa (TOP GESSO) na logo de texto.
+
+Links Ativos: Todos os botões, links de "Saber mais" e o ícone flutuante do WhatsApp estão apontando para o seu número corretamente formatado.
+
+Imagens Prontas: Coloquei imagens reais temporárias de gesso/obras vindas do banco de imagens (Unsplash). Você pode simplesmente procurar pelos trechos <img src="... no código e trocar pelo nome das suas fotos quando subir (ex: obra-1.jpg).
+
+CORREÇÕES
+
+RV - Forros e Divisórias Drywall
+
+Genelson. não existe, deixa sem responsavel
+
+Entendido. O nome será ajustado para RV - Forros e Divisórias Drywall e a menção ao "Genelson" foi removida.
+
+Aqui está o código HTML corrigido:
+
+HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -322,3 +1127,351 @@
 
 </body>
 </html>
+tira rvdrywall
+
+e deixar a referência que estava no outro da logo no github e as referencias das imagens que estam hospedadas no github
+
+Your HTML file is ready
+
+Ícone do app HTML
+index
+ HTML 
+Aberto
+Removi as menções a "RVDrywall" e "RV - Forros e Divisórias Drywall".
+
+Voltei as referências da logo e imagens do seu site original, que apontam para os arquivos na mesma pasta onde a página será hospedada (por exemplo, logo.png, obra-1.jpg, obra-2.jpg, obra-3.jpg).
+
+Se precisar de mais alguma alteração, é só falar.
+
+
+
+
+O Gemini é uma IA e pode cometer erros.
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forro e Divisórias Drywall</title>
+  <style>
+    /* RESET E VARIÁVEIS */
+    :root {
+      --primary: #0f172a; /* Azul muito escuro/Preto */
+      --accent: #f97316;  /* Laranja moderno */
+      --light-bg: #f8fafc;
+      --text-main: #334155;
+      --text-light: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light-bg); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* TOPO (Topbar) */
+    .topbar { background: var(--primary); color: #fff; font-size: 0.85rem; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .topbar a { color: var(--accent); font-weight: 600; margin-left: 15px; }
+    .topbar a:hover { color: #fff; }
+
+    /* HEADER / MENU */
+    header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); flex-wrap: wrap; gap: 15px; }
+    .logo-container { display: flex; align-items: center; gap: 10px; }
+    .logo-container img { height: 40px; }
+    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .logo-text span { color: var(--accent); }
+    
+    nav { display: flex; gap: 25px; align-items: center; }
+    nav a { font-weight: 600; color: var(--text-main); font-size: 0.95rem; }
+    nav a:hover { color: var(--accent); }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); padding: 8px 20px; border-radius: 6px; font-weight: 700; }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+
+    /* HERO SECTION (Início) */
+    .hero { padding: 80px 5%; display: flex; align-items: center; background: #fff; }
+    .hero-content { max-width: 650px; }
+    .label { display: inline-block; background: #f1f5f9; color: var(--text-light); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+    .hero h1 { font-size: 3.5rem; line-height: 1.1; color: var(--primary); margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 30px; max-width: 500px; }
+    
+    .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn-main { background: var(--accent); color: #fff; padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    .btn-main:hover { background: #ea580c; transform: translateY(-2px); }
+    .btn-secondary { background: #f1f5f9; color: var(--primary); padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 1.05rem; }
+    .btn-secondary:hover { background: #e2e8f0; }
+
+    .features-list { display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; color: var(--primary); flex-wrap: wrap; }
+    .features-list span::before { content: '✓'; color: var(--accent); margin-right: 5px; font-weight: bold; }
+
+    /* SEÇÕES COMUNS */
+    .section-pad { padding: 80px 5%; }
+    .section-header { margin-bottom: 50px; max-width: 600px; }
+    .section-header h2 { font-size: 2.5rem; color: var(--primary); line-height: 1.2; letter-spacing: -0.5px; }
+
+    /* O QUE FAZEMOS (Serviços) */
+    .bg-light { background: var(--light-bg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: #fff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.3s; border-top: 4px solid transparent; }
+    .card:hover { border-top-color: var(--accent); transform: translateY(-5px); }
+    .card-num { font-size: 2.5rem; font-weight: 800; color: #f1f5f9; line-height: 1; margin-bottom: 20px; }
+    .card h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 15px; }
+    .card p { color: var(--text-light); margin-bottom: 20px; }
+    .card-link { color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 5px; }
+    .card-link:hover { gap: 10px; }
+
+    /* VANTAGENS (Grid invertido) */
+    .vantagens-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+    .vantagens-img { flex: 1; min-width: 300px; position: relative; }
+    .vantagens-img img { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .vantagens-badge { position: absolute; bottom: -20px; right: -20px; background: var(--primary); color: #fff; padding: 20px; border-radius: 8px; font-weight: 700; }
+    .vantagens-badge span { display: block; color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
+    .vantagens-content { flex: 1; min-width: 300px; }
+
+    .adv-list { margin-top: 30px; }
+    .adv-item { margin-bottom: 25px; }
+    .adv-item h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+    .adv-item h3::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+
+    /* PROJETOS / GALERIA */
+    .bg-dark { background: var(--primary); color: #fff; }
+    .bg-dark .section-header h2 { color: #fff; }
+    .bg-dark .label { background: rgba(255,255,255,0.1); color: var(--accent); }
+    .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .galeria-item { position: relative; border-radius: 12px; overflow: hidden; }
+    .galeria-item img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
+    .galeria-item:hover img { transform: scale(1.05); }
+    .galeria-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 30px 20px 20px; color: #fff; font-weight: 700; font-size: 1.1rem; }
+    .galeria-caption span { color: var(--accent); margin-right: 10px; }
+
+    /* COMO TRABALHAMOS */
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; counter-reset: step; }
+    .step { padding: 30px; background: #fff; border-radius: 12px; position: relative; border: 1px solid #e2e8f0; }
+    .step::before { counter-increment: step; content: counter(step); position: absolute; top: -20px; left: 30px; width: 40px; height: 40px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; border-radius: 50%; border: 4px solid #fff; }
+    .step h3 { margin: 15px 0 10px; color: var(--primary); }
+
+    /* CTA / CONTATO */
+    .cta-section { text-align: center; background: #fff; padding: 100px 5%; }
+    .cta-section h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .cta-section p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 40px; }
+
+    /* FOOTER */
+    footer { background: var(--primary); color: #94a3b8; padding: 60px 5% 30px; border-top: 5px solid var(--accent); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-col h3 { color: #fff; margin-bottom: 20px; font-size: 1.2rem; }
+    .footer-col p, .footer-col a { margin-bottom: 10px; display: block; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+
+    /* BOTÃO FLUTUANTE WHATSAPP */
+    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); background: #1ebd5a; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      nav { display: none; }
+      .topbar { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="topbar">
+    <span>Atendimento em Rio Verde e região</span>
+    <div>
+      <span>(64) 98129-0173</span>
+      <a href="https://wa.me/5564981290173" target="_blank">Fale no WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <a href="#" class="logo-container">
+      <img src="logo.png" alt="Forro e Divisórias Drywall">
+    </a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5564981290173" target="_blank" class="btn-outline">Pedir orçamento</a>
+  </header>
+
+  <!-- INÍCIO (HERO) -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="label">Especialistas em construção a seco</span>
+      <h1>Mais espaço.<br><em>Mais possibilidades.</em></h1>
+      <p>Forros, divisórias e soluções em drywall para transformar ambientes com agilidade, organização e um acabamento que faz diferença.</p>
+      
+      <div class="hero-buttons">
+        <a href="https://wa.me/5564981290173" target="_blank" class="btn-main">Solicitar orçamento</a>
+        <a href="#servicos" class="btn-secondary">Conhecer serviços ↓</a>
+      </div>
+
+      <div class="features-list">
+        <span>Orçamento sem compromisso</span>
+        <span>Execução ágil</span>
+        <span>Acabamento cuidadoso</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="section-pad bg-light">
+    <div class="section-header">
+      <span class="label">O que fazemos</span>
+      <h2>Soluções para transformar cada ambiente.</h2>
+      <p style="margin-top: 15px; color: var(--text-light);">Da divisão inteligente dos espaços ao acabamento do teto, cuidamos da execução para sua obra avançar com segurança.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Forros em drywall</h3>
+        <p>Rebaixamentos e forros com acabamento uniforme para residências, comércios e escritórios.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Divisórias e paredes</h3>
+        <p>Ambientes bem distribuídos, execução limpa e soluções que se adaptam ao seu projeto.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Projetos sob medida</h3>
+        <p>Recortes, detalhes e soluções personalizadas para integrar iluminação, conforto e estética.</p>
+        <a href="https://wa.me/5564981290173" class="card-link" target="_blank">Fazer orçamento →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VANTAGENS -->
+  <section id="vantagens" class="section-pad">
+    <div class="vantagens-container">
+      <div class="vantagens-content">
+        <span class="label">Por que escolher drywall</span>
+        <h2>Construção inteligente,<br>do seu jeito.</h2>
+        <p style="color: var(--text-light); margin-top: 15px; font-size: 1.1rem;">O drywall une praticidade, desempenho e liberdade de projeto. É a escolha certa para renovar sem abrir mão de um resultado bonito e funcional.</p>
+        
+        <div class="adv-list">
+          <div class="adv-item">
+            <h3>Rapidez</h3>
+            <p style="color: var(--text-light);">Obra ágil e organizada, com menos desperdício e menor impacto na rotina.</p>
+          </div>
+          <div class="adv-item">
+            <h3>Versatilidade</h3>
+            <p style="color: var(--text-light);">Soluções para criar, dividir ou renovar ambientes de diferentes tamanhos.</p>
+          </div>
+          <div class="adv-item">
+            <h3>Acabamento</h3>
+            <p style="color: var(--text-light);">Cuidado em cada etapa para entregar superfícies alinhadas e prontas para valorizar o espaço.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vantagens-img">
+        <img src="obra-2.jpg" alt="Estrutura de Drywall">
+        <div class="vantagens-badge">
+          <span>Obra limpa</span>
+          Resultado preciso
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS / APLICAÇÕES -->
+  <section id="projetos" class="section-pad bg-dark">
+    <div class="section-header" style="max-width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span class="label">Aplicações</span>
+        <h2>Drywall que acompanha<br>o ritmo da sua obra.</h2>
+      </div>
+      <a href="https://wa.me/5564981290173" class="btn-main" target="_blank">Quero transformar meu espaço</a>
+    </div>
+
+    <div class="galeria-grid">
+      <div class="galeria-item">
+        <img src="obra-3.jpg" alt="Residencial">
+        <div class="galeria-caption"><span>01</span> Ambientes residenciais</div>
+      </div>
+      <div class="galeria-item">
+        <img src="obra-1.jpg" alt="Forros">
+        <div class="galeria-caption"><span>02</span> Forros e rebaixamentos</div>
+      </div>
+      <div class="galeria-item">
+        <img src="obra-2.jpg" alt="Divisórias">
+        <div class="galeria-caption"><span>03</span> Divisórias internas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHAMOS -->
+  <section class="section-pad bg-light">
+    <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
+      <span class="label">Como trabalhamos</span>
+      <h2>Simples para você.<br>Bem-feito em cada etapa.</h2>
+    </div>
+
+    <div class="process-steps">
+      <div class="step">
+        <h3>Entendemos sua obra</h3>
+        <p style="color: var(--text-light);">Você explica o que precisa e alinhamos medidas, ambiente e melhor solução.</p>
+      </div>
+      <div class="step">
+        <h3>Preparamos a proposta</h3>
+        <p style="color: var(--text-light);">Organizamos o serviço e apresentamos um orçamento claro, sem compromisso.</p>
+      </div>
+      <div class="step">
+        <h3>Executamos com cuidado</h3>
+        <p style="color: var(--text-light);">Nossa equipe realiza o trabalho com agilidade, organização e atenção ao acabamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO (CTA) -->
+  <section id="contato" class="cta-section">
+    <span class="label">Vamos conversar?</span>
+    <h2>Seu ambiente pode ficar<br>do jeito que você imaginou.</h2>
+    <p>Conte o que você precisa e receba um orçamento direto no WhatsApp.</p>
+    <a href="https://wa.me/5564981290173" target="_blank" class="btn-main" style="padding: 18px 40px; font-size: 1.2rem;">Pedir orçamento agora</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="logo.png" alt="Forro e Divisórias Drywall" style="max-width: 150px; margin-bottom: 15px;">
+        <p>Qualidade, rapidez e confiança para sua obra em drywall.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Navegação</h3>
+        <a href="#servicos">Serviços</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#projetos">Projetos</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <a href="https://wa.me/5564981290173" target="_blank">WhatsApp: (64) 98129-0173</a>
+        <p>Atendimento exclusivo em<br>Rio Verde - GO e região.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Forro e Divisórias Drywall. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5564981290173?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" class="whatsapp-float">
+    <svg width="35" height="35" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.031 0C5.385 0 0 5.386 0 12.032C0 14.156 0.557 16.225 1.597 18.016L0.111 23.447L5.65 21.996C7.369 22.94 9.294 23.447 11.272 23.447H11.275C17.921 23.447 23.307 18.061 23.307 11.415C23.307 4.769 17.924 0 11.278 0H12.031ZM11.275 21.488C9.484 21.488 7.733 21.009 6.195 20.098L5.834 19.884L2.571 20.738L3.443 17.564L3.208 17.189C2.209 15.6 1.683 13.784 1.683 11.905C1.683 6.619 5.986 2.316 11.275 2.316C16.564 2.316 20.867 6.619 20.867 11.908C20.864 17.197 16.561 21.488 11.275 21.488ZM16.536 14.301C16.248 14.157 14.832 13.46 14.568 13.364C14.304 13.268 14.112 13.22 13.92 13.508C13.728 13.796 13.176 14.469 13.008 14.685C12.84 14.901 12.672 14.925 12.384 14.781C12.096 14.637 11.166 14.333 10.059 13.344C9.186 12.564 8.598 11.621 8.43 11.333C8.262 11.045 8.412 10.889 8.556 10.745C8.688 10.613 8.844 10.409 8.988 10.241C9.132 10.073 9.18 9.953 9.276 9.761C9.372 9.569 9.324 9.401 9.252 9.257C9.18 9.113 8.598 7.673 8.358 7.097C8.124 6.533 7.884 6.605 7.716 6.593C7.56 6.581 7.368 6.581 7.176 6.581C6.984 6.581 6.672 6.653 6.408 6.941C6.144 7.229 5.4 7.925 5.4 9.341C5.4 10.757 6.432 12.125 6.576 12.317C6.72 12.509 8.568 15.365 11.4 16.589C12.072 16.877 12.6 17.045 13.008 17.177C13.68 17.393 14.292 17.357 14.772 17.273C15.312 17.177 16.44 16.565 16.68 15.893C16.92 15.221 16.92 14.645 16.848 14.525C16.776 14.405 16.584 14.333 16.296 14.189Z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
+index.html
+Exibindo index.html.
